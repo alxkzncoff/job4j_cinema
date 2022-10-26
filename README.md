@@ -1,6 +1,41 @@
-# Cinema tickets
+# Проекте - "Кинотеатр"
 
-Проект сервиса по покупки билетов в кинотеатр.
+## Общая информация
+
+Проект разработан с целью улучшения навыков работы с различными стеками технологий и 
+представляет собой веб сервис по покупке билетов в кинотеатр. 
+При необходимости функционал проекта можно расширить.
+
+## Запуск проекта
+
+Для корректной работы приложения необходимо установить следующие программы:
+
+- Java 16 или выше;
+- PostgreSQL 14 или выше;
+- Apache Maven 3.8.3 или выше.
+
+1. Настройка postgreSQL. В терминале набрать следующие команды:
+
+- Ввести логин. Вместо username указать свой;
+```bash
+  psql --username <username>
+```
+- Ввести пароль;
+- Создать базу данных.
+```bash
+  create database cinema;
+```
+
+- Создать таблицы из db/scripts в следующем порядке:
+    
+    - create_sessions.sql
+    - create_users.sql
+    - create_tickets.sql
+  
+2. Запуск при помощи maven. В терминале набрать следующие команды:
+```
+  mvn spring-boot:run
+```
 
 ## Пример функционирования сервиса.
 
@@ -8,12 +43,18 @@
 
 Для работы с сервисом, клиент должен авторизоваться с помощью почты и пароля, указанных при регистрации.
 
-![login](docs/login.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/login.jpg" alt="Login">
+</details>
 
 Если это первое посещение, то пользователю необходимо зарегистрироваться. Для этого необходимо перейти на страницу
 регистрации в левом верхнем углу страницы.
 
-![regMenu](docs/regMenu.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/regMenu.jpg" alt="Registration menu">
+</details>
 
 Для регистрации необходимо указать следующие данные заполнив соответствующие поля:
 
@@ -24,39 +65,60 @@
 
 После чего нажать кнопку "Зарегистрироваться".
 
-![reg](docs/reg.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/reg.jpg" alt="Registration">
+</details>
 
 После регистрации пользователь будет перенаправлен на страницу авторизации. Для авторизации необходимо указать
 почту и пароль, после чего нажать кнопку "Войти".
 
-![signin](docs/signin.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/signin.jpg" alt="Sign in">
+</details>
 
 Если пользователь с такой почтой уже зарегистрирован, то будет выведено соответствующее сообщение.
 Нужно ввести другие данные.
 
-![failReg](docs/failReg.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/failReg.jpg" alt="Registration fail">
+</details>
 
 ### 2. Бронирование билетов:
 
 После авторизации пользователь перенаправляется на страницу выбора сеансов. Здесь пользователь может выбрать
 сеанс, нажав соответствующую кнопку, напротив интересующего сеанса.
 
-![chooseSession](docs/chooseSession.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/chooseSession.jpg" alt="Session selection">
+</details>
 
 После этого пользователя перенаправит на страницу выбора места. Здесь выводится список всех доступных для 
 бронирования мест для данного сеанса. Выбор производится нажатием соответствующей кнопки напротив интересующего места.
 
-![takeSeat](docs/takeSeat.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/takeSeat.jpg" alt="Seat selection">
+</details>
 
 Далее происходит перенаправление на страницу подтверждения. Если пользователя все устраивает, то ему необходимо
 нажать на кнопку "Подтвердить".
 
-![confirmOrder](docs/confirmOrder.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/confirmOrder.jpg" alt="Order confirm">
+</details>
 
 Если все прошло успешно, то пользователь перенаправляется в личный кабинет, в котором указаны его данные 
 и информация о всех приобретенных им билетах.
 
-![account](docs/account.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/account.jpg" alt="Account details">
+</details>
 
 Пользователь может повторить процесс, чтобы приобрести еще билеты.
 
@@ -65,7 +127,10 @@
 подтверждения. Второй пользователь получит сообщение об ошибке, что данные билет уже приобретен и предложение
 приобрести другой билет.
 
-![failOrder](docs/failOrder.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/failOrder.jpg" alt="Order fail">
+</details>
 
 ### 3. Личный кабинет.
 
@@ -77,17 +142,25 @@
 
 Для этого необходимо нажать кнопку "Изменить данные"
 
-![changeInfo](docs/changeInfo.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/changeInfo.jpg" alt="Change information">
+</details>
 
 После заполнения соответствующих полей, необходимо нажать кнопку "Сохранить".
 
-![saveInfo](docs/saveInfo.jpg)
+<details>
+  <summary>Пример:</summary>
+  <img src="docs/saveInfo.jpg" alt="Save information">
+</details>
 
 Новая информация сразу же отобразиться в личном кабинете.
 
-[![java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot)](https://spring.io/projects/spring-boot)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![PostgresSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+## Технологии
+
+[![java](https://img.shields.io/badge/java-16-red)](https://www.java.com/)
+[![maven](https://img.shields.io/badge/apache--maven-3.8.3-blue)](https://maven.apache.org/)
+[![Spring Boot](https://img.shields.io/badge/spring%20boot-2.7.3-brightgreen)](https://spring.io/projects/spring-boot)
+[![PostgresSQL](https://img.shields.io/badge/postgreSQL-14-blue)](https://www.postgresql.org/)
 
 [![Actions Status](https://github.com/alxkzncoff/job4j_cinema/workflows/java-ci/badge.svg)](https://github.com/alxkzncoff/job4j_cinema/actions)
